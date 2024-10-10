@@ -167,16 +167,6 @@ func TestNewConflict(t *testing.T) {
 	doCommonAssertions(t, problemDetails)
 }
 
-func TestNewUnprocessableEntity(t *testing.T) {
-	problemDetails := NewUnprocessableEntity()
-	assert.Equal(t, UnprocessableEntity.Type, problemDetails.Type)
-	assert.Equal(t, UnprocessableEntity.Code, problemDetails.Status)
-	assert.Equal(t, UnprocessableEntity.Title, problemDetails.Title)
-	assert.Equal(t, "", problemDetails.Detail)
-	assert.Equal(t, 0, len(problemDetails.Extensions))
-	doCommonAssertions(t, problemDetails)
-}
-
 func TestNewNotImplemented(t *testing.T) {
 	problemDetails := NewNotImplemented()
 	assert.Equal(t, NotImplemented.Type, problemDetails.Type)
@@ -207,26 +197,355 @@ func TestNewServiceUnavailable(t *testing.T) {
 	doCommonAssertions(t, problemDetails)
 }
 
-func TestNewBadRequestCustomized(t *testing.T) {
-	title := "kaboom"
-	detail := "the unthinkable has occurred"
-	extKey1 := "key1"
-	extValue1 := "value1"
-	extKey2 := "key2"
-	extValue2 := "value2"
-
-	problemDetails := NewBadRequest().WithTitle(title).WithDetail(detail).WithExtension(
-		extKey1, extValue1).WithExtension(extKey2, extValue2)
-	assert.Equal(t, BadRequest.Type, problemDetails.Type)
-	assert.Equal(t, BadRequest.Code, problemDetails.Status)
-	assert.Equal(t, title, problemDetails.Title)
-	assert.Equal(t, detail, problemDetails.Detail)
-	assert.Equal(t, 2, len(problemDetails.Extensions))
-	assert.Equal(t, extValue1, problemDetails.Extensions[extKey1])
-	assert.Equal(t, extValue2, problemDetails.Extensions[extKey2])
+func TestNewGatewayTimeout(t *testing.T) {
+	problemDetails := NewGatewayTimeout()
+	assert.Equal(t, GatewayTimeout.Type, problemDetails.Type)
+	assert.Equal(t, GatewayTimeout.Code, problemDetails.Status)
+	assert.Equal(t, GatewayTimeout.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
 	doCommonAssertions(t, problemDetails)
 }
 
+func TestNewTeapot(t *testing.T) {
+	problemDetails := NewTeapot()
+	assert.Equal(t, Teapot.Type, problemDetails.Type)
+	assert.Equal(t, Teapot.Code, problemDetails.Status)
+	assert.Equal(t, Teapot.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewEarlyHints(t *testing.T) {
+	problemDetails := NewEarlyHints()
+	assert.Equal(t, EarlyHints.Type, problemDetails.Type)
+	assert.Equal(t, EarlyHints.Code, problemDetails.Status)
+	assert.Equal(t, EarlyHints.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewNonAuthoritativeInfo(t *testing.T) {
+	problemDetails := NewNonAuthoritativeInfo()
+	assert.Equal(t, NonAuthoritativeInfo.Type, problemDetails.Type)
+	assert.Equal(t, NonAuthoritativeInfo.Code, problemDetails.Status)
+	assert.Equal(t, NonAuthoritativeInfo.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewResetContent(t *testing.T) {
+	problemDetails := NewResetContent()
+	assert.Equal(t, ResetContent.Type, problemDetails.Type)
+	assert.Equal(t, ResetContent.Code, problemDetails.Status)
+	assert.Equal(t, ResetContent.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewPartialContent(t *testing.T) {
+	problemDetails := NewPartialContent()
+	assert.Equal(t, PartialContent.Type, problemDetails.Type)
+	assert.Equal(t, PartialContent.Code, problemDetails.Status)
+	assert.Equal(t, PartialContent.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewIMUsed(t *testing.T) {
+	problemDetails := NewIMUsed()
+	assert.Equal(t, IMUsed.Type, problemDetails.Type)
+	assert.Equal(t, IMUsed.Code, problemDetails.Status)
+	assert.Equal(t, IMUsed.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewMultipleChoices(t *testing.T) {
+	problemDetails := NewMultipleChoices()
+	assert.Equal(t, MultipleChoices.Type, problemDetails.Type)
+	assert.Equal(t, MultipleChoices.Code, problemDetails.Status)
+	assert.Equal(t, MultipleChoices.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewSeeOther(t *testing.T) {
+	problemDetails := NewSeeOther()
+	assert.Equal(t, SeeOther.Type, problemDetails.Type)
+	assert.Equal(t, SeeOther.Code, problemDetails.Status)
+	assert.Equal(t, SeeOther.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewUseProxy(t *testing.T) {
+	problemDetails := NewUseProxy()
+	assert.Equal(t, UseProxy.Type, problemDetails.Type)
+	assert.Equal(t, UseProxy.Code, problemDetails.Status)
+	assert.Equal(t, UseProxy.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewTemporaryRedirect(t *testing.T) {
+	problemDetails := NewTemporaryRedirect()
+	assert.Equal(t, TemporaryRedirect.Type, problemDetails.Type)
+	assert.Equal(t, TemporaryRedirect.Code, problemDetails.Status)
+	assert.Equal(t, TemporaryRedirect.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewPermanentRedirect(t *testing.T) {
+	problemDetails := NewPermanentRedirect()
+	assert.Equal(t, PermanentRedirect.Type, problemDetails.Type)
+	assert.Equal(t, PermanentRedirect.Code, problemDetails.Status)
+	assert.Equal(t, PermanentRedirect.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewPaymentRequired(t *testing.T) {
+	problemDetails := NewPaymentRequired()
+	assert.Equal(t, PaymentRequired.Type, problemDetails.Type)
+	assert.Equal(t, PaymentRequired.Code, problemDetails.Status)
+	assert.Equal(t, PaymentRequired.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewNotAcceptable(t *testing.T) {
+	problemDetails := NewNotAcceptable()
+	assert.Equal(t, NotAcceptable.Type, problemDetails.Type)
+	assert.Equal(t, NotAcceptable.Code, problemDetails.Status)
+	assert.Equal(t, NotAcceptable.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewProxyAuthenticationRequired(t *testing.T) {
+	problemDetails := NewProxyAuthenticationRequired()
+	assert.Equal(t, ProxyAuthenticationRequired.Type, problemDetails.Type)
+	assert.Equal(t, ProxyAuthenticationRequired.Code, problemDetails.Status)
+	assert.Equal(t, ProxyAuthenticationRequired.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewRequestTimeout(t *testing.T) {
+	problemDetails := NewRequestTimeout()
+	assert.Equal(t, RequestTimeout.Type, problemDetails.Type)
+	assert.Equal(t, RequestTimeout.Code, problemDetails.Status)
+	assert.Equal(t, RequestTimeout.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewGone(t *testing.T) {
+	problemDetails := NewGone()
+	assert.Equal(t, Gone.Type, problemDetails.Type)
+	assert.Equal(t, Gone.Code, problemDetails.Status)
+	assert.Equal(t, Gone.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewLengthRequired(t *testing.T) {
+	problemDetails := NewLengthRequired()
+	assert.Equal(t, LengthRequired.Type, problemDetails.Type)
+	assert.Equal(t, LengthRequired.Code, problemDetails.Status)
+	assert.Equal(t, LengthRequired.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewPreconditionFailed(t *testing.T) {
+	problemDetails := NewPreconditionFailed()
+	assert.Equal(t, PreconditionFailed.Type, problemDetails.Type)
+	assert.Equal(t, PreconditionFailed.Code, problemDetails.Status)
+	assert.Equal(t, PreconditionFailed.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewPayloadTooLarge(t *testing.T) {
+	problemDetails := NewPayloadTooLarge()
+	assert.Equal(t, PayloadTooLarge.Type, problemDetails.Type)
+	assert.Equal(t, PayloadTooLarge.Code, problemDetails.Status)
+	assert.Equal(t, PayloadTooLarge.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewURITooLong(t *testing.T) {
+	problemDetails := NewURITooLong()
+	assert.Equal(t, URITooLong.Type, problemDetails.Type)
+	assert.Equal(t, URITooLong.Code, problemDetails.Status)
+	assert.Equal(t, URITooLong.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewUnsupportedMediaType(t *testing.T) {
+	problemDetails := NewUnsupportedMediaType()
+	assert.Equal(t, UnsupportedMediaType.Type, problemDetails.Type)
+	assert.Equal(t, UnsupportedMediaType.Code, problemDetails.Status)
+	assert.Equal(t, UnsupportedMediaType.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewRangeNotSatisfiable(t *testing.T) {
+	problemDetails := NewRangeNotSatisfiable()
+	assert.Equal(t, RangeNotSatisfiable.Type, problemDetails.Type)
+	assert.Equal(t, RangeNotSatisfiable.Code, problemDetails.Status)
+	assert.Equal(t, RangeNotSatisfiable.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewExpectationFailed(t *testing.T) {
+	problemDetails := NewExpectationFailed()
+	assert.Equal(t, ExpectationFailed.Type, problemDetails.Type)
+	assert.Equal(t, ExpectationFailed.Code, problemDetails.Status)
+	assert.Equal(t, ExpectationFailed.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewMisdirectedRequest(t *testing.T) {
+	problemDetails := NewMisdirectedRequest()
+	assert.Equal(t, MisdirectedRequest.Type, problemDetails.Type)
+	assert.Equal(t, MisdirectedRequest.Code, problemDetails.Status)
+	assert.Equal(t, MisdirectedRequest.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewUpgradeRequired(t *testing.T) {
+	problemDetails := NewUpgradeRequired()
+	assert.Equal(t, UpgradeRequired.Type, problemDetails.Type)
+	assert.Equal(t, UpgradeRequired.Code, problemDetails.Status)
+	assert.Equal(t, UpgradeRequired.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewPreconditionRequired(t *testing.T) {
+	problemDetails := NewPreconditionRequired()
+	assert.Equal(t, PreconditionRequired.Type, problemDetails.Type)
+	assert.Equal(t, PreconditionRequired.Code, problemDetails.Status)
+	assert.Equal(t, PreconditionRequired.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewTooManyRequests(t *testing.T) {
+	problemDetails := NewTooManyRequests()
+	assert.Equal(t, TooManyRequests.Type, problemDetails.Type)
+	assert.Equal(t, TooManyRequests.Code, problemDetails.Status)
+	assert.Equal(t, TooManyRequests.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewRequestHeaderFieldsTooLarge(t *testing.T) {
+	problemDetails := NewRequestHeaderFieldsTooLarge()
+	assert.Equal(t, RequestHeaderFieldsTooLarge.Type, problemDetails.Type)
+	assert.Equal(t, RequestHeaderFieldsTooLarge.Code, problemDetails.Status)
+	assert.Equal(t, RequestHeaderFieldsTooLarge.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewUnavailableForLegalReasons(t *testing.T) {
+	problemDetails := NewUnavailableForLegalReasons()
+	assert.Equal(t, UnavailableForLegalReasons.Type, problemDetails.Type)
+	assert.Equal(t, UnavailableForLegalReasons.Code, problemDetails.Status)
+	assert.Equal(t, UnavailableForLegalReasons.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewHTTPVersionNotSupported(t *testing.T) {
+	problemDetails := NewHTTPVersionNotSupported()
+	assert.Equal(t, HTTPVersionNotSupported.Type, problemDetails.Type)
+	assert.Equal(t, HTTPVersionNotSupported.Code, problemDetails.Status)
+	assert.Equal(t, HTTPVersionNotSupported.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewVariantAlsoNegotiates(t *testing.T) {
+	problemDetails := NewVariantAlsoNegotiates()
+	assert.Equal(t, VariantAlsoNegotiates.Type, problemDetails.Type)
+	assert.Equal(t, VariantAlsoNegotiates.Code, problemDetails.Status)
+	assert.Equal(t, VariantAlsoNegotiates.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewNotExtended(t *testing.T) {
+	problemDetails := NewNotExtended()
+	assert.Equal(t, NotExtended.Type, problemDetails.Type)
+	assert.Equal(t, NotExtended.Code, problemDetails.Status)
+	assert.Equal(t, NotExtended.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewNetworkAuthenticationRequired(t *testing.T) {
+	problemDetails := NewNetworkAuthenticationRequired()
+	assert.Equal(t, NetworkAuthenticationRequired.Type, problemDetails.Type)
+	assert.Equal(t, NetworkAuthenticationRequired.Code, problemDetails.Status)
+	assert.Equal(t, NetworkAuthenticationRequired.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewTooEarly(t *testing.T) {
+	problemDetails := NewTooEarly()
+	assert.Equal(t, TooEarly.Type, problemDetails.Type)
+	assert.Equal(t, TooEarly.Code, problemDetails.Status)
+	assert.Equal(t, TooEarly.Title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
 func doCommonAssertions(t *testing.T, problemDetails *ProblemDetails) {
 	assert.Equal(t, true, strings.Contains(problemDetails.Instance, uuidUrnPrefix))
 
