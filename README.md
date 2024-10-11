@@ -13,48 +13,65 @@ Detailed instructions on how to build the project from source. Also note where t
 ## Installation
 ```go get -u github.com/Evernorth/http-problemdetails-go```
 
-## Configuration
+## Features
+ - The MIME type of the response is `application/problem+json`.
+ - Supports the following HTTP status codes:
 
-If the software is configurable, describe it in detail, either here or in other documentation to which you link.
+| HTTP Code                           | Method                                          |
+|-------------------------------------|-------------------------------------------------|
+| 400 Bad Request                     | [`NewBadRequest()`](problemdetails.go)          |
+| 401 Unauthorized                    | [`NewUnauthorized()`](problemdetails.go)        |
+| 403 Forbidden                       | [`NewForbidden()`](problemdetails.go)           |
+| 404 Not Found                       | [`NewNotFound()`](problemdetails.go)            |
+| 409 Conflict                        | [`NewConflict()`](problemdetails.go)            |
+| 429 Too Many Requests               | [`NewTooManyRequests()`](problemdetails.go)     |
+| 500 Internal Server Error           | [`NewInternalServerError()`](problemdetails.go) |
+| 501 Not Implemented                 | [`NewNotImplemented()`](problemdetails.go)      |
+| 502 Bad Gateway                     | [`NewBadGateway()`](problemdetails.go)          |
+| 503 Service Unavailable             | [`NewServiceUnavailable()`](problemdetails.go)  |
+| 504 Gateway Timeout                 | [`NewGatewayTimeout()`](problemdetails.go)      |
 
+
+>Note: MIME type must be set in the response header to comply with the RFC 9457 specification.
 
 ## Usage
 ### Creating a simple HTTP ProblemDetails
 You can create a ProblemDetails instance by simply calling functions like `problemdetails.NewInternalServerError()`, `problemdetails.NewNotFound()` and `problemdetails.NewBadRequest()`.
-```go
-package employee
+```
+package main
 
 import (
-    "github.com/Evernorth/http-problemdetails-go/http/problemdetails"
+    "github.com/Evernorth/http-problemdetails-go/problemdetails"
     "github.com/go-chi/chi/v5"
     "github.com/go-chi/render"
     "net/http"
 )
 
-func getEmployee(httpRespWriter http.ResponseWriter, httpReq *http.Request) {
+func getSomething(httpRespWriter http.ResponseWriter, httpReq *http.Request) {
     
     err := doSomething()
     if err != nil {
         httpRespWriter.WriteHeader(http.StatusInternalServerError)
         render.JSON(httpRespWriter, httpReq, problemdetails.NewInternalServerError())
-        return
+        httpRespWriter.Header().Set("Content-Type", problemdetails.MimeType)
+      return
     }
     ...
 }
 ```
 ### Creating a complex HTTP ProblemDetails
 You can easily override the default ProblemDetails title and detail fields and provide custom extension fields by using the `WithTitle`, `WithDetail` and `WithExtension` functions.
-```go
-package employee
+```
+package main
 
 import (
-    "github.com/Evernorth/http-problemdetails-go/http/problemdetails"
+    "github.com/Evernorth/http-problemdetails-go/problemdetails"
     "github.com/go-chi/chi/v5"
     "github.com/go-chi/render"
     "net/http"
 )
 
-func getEmployee(httpRespWriter http.ResponseWriter, httpReq *http.Request) {
+func getSomething(httpRespWriter http.ResponseWriter, httpReq *http.Request) {
     
     err := doSomething()
     if err != nil {
@@ -63,30 +80,20 @@ func getEmployee(httpRespWriter http.ResponseWriter, httpReq *http.Request) {
             "KABOOM!!!").WithDetail("The unthinkable has occurred.").WithExtension(
                 "example1", "test").WithExtension(
                     "example2", "this could be a struct if you like"))
+        httpRespWriter.Header().Set("Content-Type", problemdetails.MimeType)
+        
         return
     }
     ...
 }
 ```
-## How to test the software
 
-If the software includes automated tests, detail how to run those tests.
-
-## Known issues
-
-Document any known significant shortcomings with the software.
-
-## Getting help
-
+## Support
 If you have questions, concerns, bug reports, etc. See [CONTRIBUTING](CONTRIBUTING.md).
-
-## Getting involved
-
-This section should detail why people should get involved and describe key areas you are
-currently focusing on; e.g., trying to get feedback on features, fixing certain bugs, building
-important pieces, etc.
-
-General instructions on _how_ to contribute should be stated with a link to [CONTRIBUTING](CONTRIBUTING.md).
 
 ## License
 http-problemdetails-go is Open Source software released under the [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0.html).
+
+## Original Contributors
+- Steve Sefton, Evernorth
+- Shellee Stewart, Evernorth

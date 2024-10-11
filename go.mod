@@ -1,4 +1,4 @@
-module github.com/Evernorth/http-problemdetails-go
+module github.com/Evernorth/problemdetails
 
 go 1.23.1
 
