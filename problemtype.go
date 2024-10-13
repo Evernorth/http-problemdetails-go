@@ -2,8 +2,10 @@ package problemdetails
 
 import "net/http"
 
-// ProblemType represents a problem type as defined in RFC 9457. This struct encapsulates the details of different types of HTTP problems, such as their type URIs, status codes, and titles. This struct would help in organizing and reusing these details across the codebase.
-type ProblemType struct {
+// problemType represents a problem type as defined in RFC 9457. This struct encapsulates the details of different
+// types of HTTP problems, such as their type URIs, status codes, and titles. This struct would help in organizing
+// and reusing these details across the codebase.
+type problemType struct {
 	code  int
 	urn   string
 	title string
@@ -11,80 +13,80 @@ type ProblemType struct {
 
 var (
 
-	// BadRequest (HTTP 400) indicates that the provided request could not be processed because it is invalid.
-	BadRequest = ProblemType{
+	// badRequest (HTTP 400)
+	badRequest = problemType{
 		code:  http.StatusBadRequest,
 		urn:   "urn:problems:bad-request",
-		title: "The provided request could not be processed because it is invalid.",
+		title: "Request could not be processed because it is invalid.",
 	}
 
-	// Unauthorized (HTTP 401) indicates that the request requires user authentication.
-	Unauthorized = ProblemType{
+	// unauthorized (HTTP 401)
+	unauthorized = problemType{
 		code:  http.StatusUnauthorized,
 		urn:   "urn:problems:unauthorized",
-		title: "The request requires user authentication.",
+		title: "Authentication required.",
 	}
 
-	// Forbidden (HTTP 403) indicates that the server understood the request, but refuses to authorize it.
-	Forbidden = ProblemType{
+	// forbidden (HTTP 403)
+	forbidden = problemType{
 		code:  http.StatusForbidden,
 		urn:   "urn:problems:forbidden",
-		title: "The server understood the request, but refuses to authorize it.",
+		title: "User is not authorized to perform the requested operation.",
 	}
 
-	// NotFound (HTTP 404) indicates that the specified resource could not be found.
-	NotFound = ProblemType{
+	// notFound (HTTP 404)
+	notFound = problemType{
 		code:  http.StatusNotFound,
 		urn:   "urn:problems:not-found",
 		title: "The specified resource could not be found.",
 	}
 
-	// Conflict (HTTP 409) indicates that the request could not be completed due to a conflict with the current state of the resource.
-	Conflict = ProblemType{
+	// notFound (HTTP 405)
+	methodNotAllowed = problemType{
+		code:  http.StatusMethodNotAllowed,
+		urn:   "urn:problems:method-not-allowed",
+		title: "The specified method is not allowed.",
+	}
+
+	// conflict (HTTP 409)
+	conflict = problemType{
 		code:  http.StatusConflict,
 		urn:   "urn:problems:conflict",
-		title: "The request could not be completed due to a conflict with the current state of the resource.",
+		title: "Request could not be completed due to a conflict with the current state of the resource.",
 	}
 
-	// TooManyRequests (HTTP 429) indicates that the user has sent too many requests in a given amount of time.
-	TooManyRequests = ProblemType{
+	// tooManyRequests (HTTP 429)
+	tooManyRequests = problemType{
 		code:  http.StatusTooManyRequests,
 		urn:   "urn:problems:too-many-requests",
-		title: "The user has sent too many requests in a given amount of time.",
+		title: "User has sent too many requests.",
 	}
 
-	// InternalServerError (HTTP 500) indicates that the server has encountered a situation it doesn't know how to handle.
-	InternalServerError = ProblemType{
+	// internalServerError (HTTP 500)
+	internalServerError = problemType{
 		code:  http.StatusInternalServerError,
 		urn:   "urn:problems:internal-server-error",
-		title: "The server has encountered a situation it doesn't know how to handle.",
+		title: "An unexpected error occurred.",
 	}
 
-	// NotImplemented (HTTP 501) indicates that the request method is not supported by the server and cannot be handled.
-	NotImplemented = ProblemType{
-		code:  http.StatusNotImplemented,
-		urn:   "urn:problems:not-implemented",
-		title: "The request method is not supported by the server and cannot be handled.",
-	}
-
-	// BadGateway (HTTP 502) indicates that the server, while acting as a gateway or proxy, received an invalid response from the upstream server.
-	BadGateway = ProblemType{
+	// badGateway (HTTP 502)
+	badGateway = problemType{
 		code:  http.StatusBadGateway,
 		urn:   "urn:problems:bad-gateway",
-		title: "The server, while acting as a gateway or proxy, received an invalid response from the upstream server.",
+		title: "Invalid response from upstream server.",
 	}
 
-	// ServiceUnavailable (HTTP 503) indicates that the server is not ready to handle the request, often due to maintenance or overload.
-	ServiceUnavailable = ProblemType{
+	// serviceUnavailable (HTTP 503)
+	serviceUnavailable = problemType{
 		code:  http.StatusServiceUnavailable,
 		urn:   "urn:problems:service-unavailable",
-		title: "The server is not ready to handle the request, often due to maintenance or overload.",
+		title: "Service is temporarily unavailable.",
 	}
 
-	// GatewayTimeout (HTTP 504) indicates that the server, while acting as a gateway or proxy, did not receive a timely response from the upstream server.
-	GatewayTimeout = ProblemType{
+	// gatewayTimeout (HTTP 504)
+	gatewayTimeout = problemType{
 		code:  http.StatusGatewayTimeout,
 		urn:   "urn:problems:gateway-timeout",
-		title: "The server, while acting as a gateway or proxy, did not receive a timely response from the upstream server.",
+		title: "Timeout invoking upstream server.",
 	}
 )

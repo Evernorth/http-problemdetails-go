@@ -9,9 +9,9 @@ import (
 
 func TestNewInternalServerError(t *testing.T) {
 	problemDetails := NewInternalServerError()
-	assert.Equal(t, InternalServerError.urn, problemDetails.Type)
-	assert.Equal(t, InternalServerError.code, problemDetails.Status)
-	assert.Equal(t, InternalServerError.title, problemDetails.Title)
+	assert.Equal(t, internalServerError.urn, problemDetails.Type)
+	assert.Equal(t, internalServerError.code, problemDetails.Status)
+	assert.Equal(t, internalServerError.title, problemDetails.Title)
 	assert.Equal(t, "", problemDetails.Detail)
 	assert.Equal(t, 0, len(problemDetails.Extensions))
 	doCommonAssertions(t, problemDetails)
@@ -19,9 +19,9 @@ func TestNewInternalServerError(t *testing.T) {
 
 func TestNewNotFound(t *testing.T) {
 	problemDetails := NewNotFound()
-	assert.Equal(t, NotFound.urn, problemDetails.Type)
-	assert.Equal(t, NotFound.code, problemDetails.Status)
-	assert.Equal(t, NotFound.title, problemDetails.Title)
+	assert.Equal(t, notFound.urn, problemDetails.Type)
+	assert.Equal(t, notFound.code, problemDetails.Status)
+	assert.Equal(t, notFound.title, problemDetails.Title)
 	assert.Equal(t, "", problemDetails.Detail)
 	assert.Equal(t, 0, len(problemDetails.Extensions))
 	doCommonAssertions(t, problemDetails)
@@ -29,9 +29,9 @@ func TestNewNotFound(t *testing.T) {
 
 func TestNewBadRequest(t *testing.T) {
 	problemDetails := NewBadRequest()
-	assert.Equal(t, BadRequest.urn, problemDetails.Type)
-	assert.Equal(t, BadRequest.code, problemDetails.Status)
-	assert.Equal(t, BadRequest.title, problemDetails.Title)
+	assert.Equal(t, badRequest.urn, problemDetails.Type)
+	assert.Equal(t, badRequest.code, problemDetails.Status)
+	assert.Equal(t, badRequest.title, problemDetails.Title)
 	assert.Equal(t, "", problemDetails.Detail)
 	assert.Equal(t, 0, len(problemDetails.Extensions))
 	doCommonAssertions(t, problemDetails)
@@ -39,9 +39,9 @@ func TestNewBadRequest(t *testing.T) {
 
 func TestNewUnauthorized(t *testing.T) {
 	problemDetails := NewUnauthorized()
-	assert.Equal(t, Unauthorized.urn, problemDetails.Type)
-	assert.Equal(t, Unauthorized.code, problemDetails.Status)
-	assert.Equal(t, Unauthorized.title, problemDetails.Title)
+	assert.Equal(t, unauthorized.urn, problemDetails.Type)
+	assert.Equal(t, unauthorized.code, problemDetails.Status)
+	assert.Equal(t, unauthorized.title, problemDetails.Title)
 	assert.Equal(t, "", problemDetails.Detail)
 	assert.Equal(t, 0, len(problemDetails.Extensions))
 	doCommonAssertions(t, problemDetails)
@@ -49,9 +49,9 @@ func TestNewUnauthorized(t *testing.T) {
 
 func TestNewForbidden(t *testing.T) {
 	problemDetails := NewForbidden()
-	assert.Equal(t, Forbidden.urn, problemDetails.Type)
-	assert.Equal(t, Forbidden.code, problemDetails.Status)
-	assert.Equal(t, Forbidden.title, problemDetails.Title)
+	assert.Equal(t, forbidden.urn, problemDetails.Type)
+	assert.Equal(t, forbidden.code, problemDetails.Status)
+	assert.Equal(t, forbidden.title, problemDetails.Title)
 	assert.Equal(t, "", problemDetails.Detail)
 	assert.Equal(t, 0, len(problemDetails.Extensions))
 	doCommonAssertions(t, problemDetails)
@@ -59,9 +59,9 @@ func TestNewForbidden(t *testing.T) {
 
 func TestNewConflict(t *testing.T) {
 	problemDetails := NewConflict()
-	assert.Equal(t, Conflict.urn, problemDetails.Type)
-	assert.Equal(t, Conflict.code, problemDetails.Status)
-	assert.Equal(t, Conflict.title, problemDetails.Title)
+	assert.Equal(t, conflict.urn, problemDetails.Type)
+	assert.Equal(t, conflict.code, problemDetails.Status)
+	assert.Equal(t, conflict.title, problemDetails.Title)
 	assert.Equal(t, "", problemDetails.Detail)
 	assert.Equal(t, 0, len(problemDetails.Extensions))
 	doCommonAssertions(t, problemDetails)
@@ -69,9 +69,9 @@ func TestNewConflict(t *testing.T) {
 
 func TestNewNotImplemented(t *testing.T) {
 	problemDetails := NewNotImplemented()
-	assert.Equal(t, NotImplemented.urn, problemDetails.Type)
-	assert.Equal(t, NotImplemented.code, problemDetails.Status)
-	assert.Equal(t, NotImplemented.title, problemDetails.Title)
+	assert.Equal(t, notImplemented.urn, problemDetails.Type)
+	assert.Equal(t, notImplemented.code, problemDetails.Status)
+	assert.Equal(t, notImplemented.title, problemDetails.Title)
 	assert.Equal(t, "", problemDetails.Detail)
 	assert.Equal(t, 0, len(problemDetails.Extensions))
 	doCommonAssertions(t, problemDetails)
@@ -79,9 +79,9 @@ func TestNewNotImplemented(t *testing.T) {
 
 func TestNewBadGateway(t *testing.T) {
 	problemDetails := NewBadGateway()
-	assert.Equal(t, BadGateway.urn, problemDetails.Type)
-	assert.Equal(t, BadGateway.code, problemDetails.Status)
-	assert.Equal(t, BadGateway.title, problemDetails.Title)
+	assert.Equal(t, badGateway.urn, problemDetails.Type)
+	assert.Equal(t, badGateway.code, problemDetails.Status)
+	assert.Equal(t, badGateway.title, problemDetails.Title)
 	assert.Equal(t, "", problemDetails.Detail)
 	assert.Equal(t, 0, len(problemDetails.Extensions))
 	doCommonAssertions(t, problemDetails)
@@ -89,9 +89,9 @@ func TestNewBadGateway(t *testing.T) {
 
 func TestNewServiceUnavailable(t *testing.T) {
 	problemDetails := NewServiceUnavailable()
-	assert.Equal(t, ServiceUnavailable.urn, problemDetails.Type)
-	assert.Equal(t, ServiceUnavailable.code, problemDetails.Status)
-	assert.Equal(t, ServiceUnavailable.title, problemDetails.Title)
+	assert.Equal(t, serviceUnavailable.urn, problemDetails.Type)
+	assert.Equal(t, serviceUnavailable.code, problemDetails.Status)
+	assert.Equal(t, serviceUnavailable.title, problemDetails.Title)
 	assert.Equal(t, "", problemDetails.Detail)
 	assert.Equal(t, 0, len(problemDetails.Extensions))
 	doCommonAssertions(t, problemDetails)
@@ -99,9 +99,9 @@ func TestNewServiceUnavailable(t *testing.T) {
 
 func TestNewGatewayTimeout(t *testing.T) {
 	problemDetails := NewGatewayTimeout()
-	assert.Equal(t, GatewayTimeout.urn, problemDetails.Type)
-	assert.Equal(t, GatewayTimeout.code, problemDetails.Status)
-	assert.Equal(t, GatewayTimeout.title, problemDetails.Title)
+	assert.Equal(t, gatewayTimeout.urn, problemDetails.Type)
+	assert.Equal(t, gatewayTimeout.code, problemDetails.Status)
+	assert.Equal(t, gatewayTimeout.title, problemDetails.Title)
 	assert.Equal(t, "", problemDetails.Detail)
 	assert.Equal(t, 0, len(problemDetails.Extensions))
 	doCommonAssertions(t, problemDetails)
@@ -109,9 +109,9 @@ func TestNewGatewayTimeout(t *testing.T) {
 
 func TestNewTooManyRequests(t *testing.T) {
 	problemDetails := NewTooManyRequests()
-	assert.Equal(t, TooManyRequests.urn, problemDetails.Type)
-	assert.Equal(t, TooManyRequests.code, problemDetails.Status)
-	assert.Equal(t, TooManyRequests.title, problemDetails.Title)
+	assert.Equal(t, tooManyRequests.urn, problemDetails.Type)
+	assert.Equal(t, tooManyRequests.code, problemDetails.Status)
+	assert.Equal(t, tooManyRequests.title, problemDetails.Title)
 	assert.Equal(t, "", problemDetails.Detail)
 	assert.Equal(t, 0, len(problemDetails.Extensions))
 	doCommonAssertions(t, problemDetails)
