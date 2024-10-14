@@ -11,7 +11,7 @@ func handler(httpRespWriter http.ResponseWriter, httpReq *http.Request) {
 
 	// If the request is not a GET, return a 405 Method Not Allowed
 	if httpReq.Method != http.MethodGet {
-		httpRespWriter.Header().Set("Content-Type", problemdetails.MimeType)
+		httpRespWriter.Header().Set("Content-Type", problemdetails.MIMETypeJSON)
 		httpRespWriter.WriteHeader(http.StatusMethodNotAllowed)
 		render.JSON(httpRespWriter, httpReq, problemdetails.NewMethodNotAllowed())
 		return
@@ -24,14 +24,14 @@ func handler(httpRespWriter http.ResponseWriter, httpReq *http.Request) {
 	if exampleType == "basic" {
 
 		// Return a 500 Internal Server Error, using the NewInternalServerError function.
-		httpRespWriter.Header().Set("Content-Type", problemdetails.MimeType)
+		httpRespWriter.Header().Set("Content-Type", problemdetails.MIMETypeJSON)
 		httpRespWriter.WriteHeader(http.StatusInternalServerError)
 		render.JSON(httpRespWriter, httpReq, problemdetails.NewInternalServerError())
 
 	} else if exampleType == "advanced" {
 
 		// Return a 500 Internal Server Error, using the NewInternalServerError and With* functions.
-		httpRespWriter.Header().Set("Content-Type", problemdetails.MimeType)
+		httpRespWriter.Header().Set("Content-Type", problemdetails.MIMETypeJSON)
 		httpRespWriter.WriteHeader(http.StatusInternalServerError)
 		render.JSON(httpRespWriter, httpReq, problemdetails.NewInternalServerError().
 			WithTitle("KABOOM!!!").
@@ -42,7 +42,7 @@ func handler(httpRespWriter http.ResponseWriter, httpReq *http.Request) {
 	} else {
 
 		// Return a 400 Bad Request, using the NewBadRequest function.
-		httpRespWriter.Header().Set("Content-Type", problemdetails.MimeType)
+		httpRespWriter.Header().Set("Content-Type", problemdetails.MIMETypeJSON)
 		httpRespWriter.WriteHeader(http.StatusBadRequest)
 		render.JSON(httpRespWriter, httpReq, problemdetails.NewBadRequest().
 			WithDetail("example-type must be basic or advanced."))

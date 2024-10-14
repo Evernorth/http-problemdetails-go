@@ -7,7 +7,7 @@ import (
 
 const (
 	uuidUrnPrefix = "urn:uuid:"
-	MimeType      = "application/problem+json"
+	MIMETypeJSON  = "application/problem+json"
 )
 
 // ProblemDetails represents a HTTP Problem Details structure from https://www.rfc-editor.org/rfc/rfc9457.html
