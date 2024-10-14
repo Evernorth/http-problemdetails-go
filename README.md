@@ -1,4 +1,11 @@
 # http-problemdetails-go
+
+[![Go Reference](https://pkg.go.dev/badge/github.com/Evernorth/http-problemdetails-go.svg)](https://pkg.go.dev/github.com/Evernorth/http-problemdetails-go)
+[![Go Report Card](https://goreportcard.com/badge/github.com/Evernorth/http-problemdetails-go)](https://goreportcard.com/report/github.com/Evernorth/http-problemdetails-go)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Release](https://img.shields.io/github/v/release/Evernorth/http-problemdetails-go)](https://gtihub.com/Evernorth/http-problemdetails-go/releases)
+
+## Description
 An implementation of [IETF RFC 9457 Problem Details for HTTP APIs](https://www.rfc-editor.org/rfc/rfc9457.html) which is a specification for a standard error structure for HTTP APIs.
 
 ## Installation
@@ -20,6 +27,7 @@ An implementation of [IETF RFC 9457 Problem Details for HTTP APIs](https://www.r
 | 502 Bad Gateway           | [`NewBadGateway()`](problemdetails/problemdetails.go)          |
 | 503 Service Unavailable   | [`NewServiceUnavailable()`](problemdetails/problemdetails.go)  |
 | 504 Gateway Timeout       | [`NewGatewayTimeout()`](problemdetails/problemdetails.go)      |
+
 
 >Note: MIME type must be set in the response header to comply with the RFC 9457 specification.  The MimeType constant is provided for this purpose.
 

@@ -76,7 +76,7 @@ func NewNotFound() *ProblemDetails {
 	return New(notFound.urn, notFound.code).WithTitle(notFound.title)
 }
 
-// NewNotFound creates a new ProblemDetails instance that represents an HTTP 405 Method Not Allowed.
+// NewMethodNotAllowed creates a new ProblemDetails instance that represents an HTTP 405 Method Not Allowed.
 func NewMethodNotAllowed() *ProblemDetails {
 	return New(methodNotAllowed.urn, methodNotAllowed.code).WithTitle(methodNotAllowed.title)
 }
