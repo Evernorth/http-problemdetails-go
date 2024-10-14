@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/Evernorth/http-problemdetails-go"
+	"github.com/Evernorth/http-problemdetails-go/problemdetails"
 	"github.com/go-chi/render"
 	"net/http"
 )

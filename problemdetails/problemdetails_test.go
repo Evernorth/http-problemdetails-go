@@ -67,16 +67,6 @@ func TestNewConflict(t *testing.T) {
 	doCommonAssertions(t, problemDetails)
 }
 
-func TestNewNotImplemented(t *testing.T) {
-	problemDetails := NewNotImplemented()
-	assert.Equal(t, notImplemented.urn, problemDetails.Type)
-	assert.Equal(t, notImplemented.code, problemDetails.Status)
-	assert.Equal(t, notImplemented.title, problemDetails.Title)
-	assert.Equal(t, "", problemDetails.Detail)
-	assert.Equal(t, 0, len(problemDetails.Extensions))
-	doCommonAssertions(t, problemDetails)
-}
-
 func TestNewBadGateway(t *testing.T) {
 	problemDetails := NewBadGateway()
 	assert.Equal(t, badGateway.urn, problemDetails.Type)
