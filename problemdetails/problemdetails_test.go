@@ -139,7 +139,7 @@ func TestNewWithExtension(t *testing.T) {
 	doCommonAssertions(t, problemDetails)
 }
 
-func doCommonAssertions(t *testing.T, problemDetails *ProblemDetails) {
+func doCommonAssertions(t *testing.T, problemDetails *Problem) {
 	assert.Equal(t, true, strings.Contains(problemDetails.Instance, uuidUrnPrefix))
 
 	var createdTime time.Time
