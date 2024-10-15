@@ -51,7 +51,7 @@ func handler(httpRespWriter http.ResponseWriter, httpReq *http.Request) {
 
 	// If the request is not a GET, return a 405 Method Not Allowed
 	if httpReq.Method != http.MethodGet {
-		httpRespWriter.Header().Set("Content-Type", problemdetails.MIMETypeJSONJSON)
+		httpRespWriter.Header().Set("Content-Type", problemdetails.MIMETypeJSON)
 		httpRespWriter.WriteHeader(http.StatusMethodNotAllowed)
 		render.JSON(httpRespWriter, httpReq, problemdetails.NewMethodNotAllowed())
 		return

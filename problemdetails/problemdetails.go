@@ -45,9 +45,9 @@ func (p *Problem) WithExtension(name string, value any) *Problem {
 	return p //&p recreates pointer?
 }
 
-// New creates a new Problem instance. Do not use this function unless you are creating a
+// NewProblem creates a new Problem instance. Do not use this function unless you are creating a
 // custom Problem instance. Prefer using the functions that create standard Problem instances.
-func New(typeUri string, status int) *Problem {
+func NewProblem(typeUri string, status int) *Problem {
 	return &Problem{
 		Type:     typeUri,
 		Status:   status,
@@ -58,55 +58,55 @@ func New(typeUri string, status int) *Problem {
 
 // NewBadRequest creates a new Problem instance that represents an HTTP 400 Bad Request.
 func NewBadRequest() *Problem {
-	return New(badRequest.urn, badRequest.code).WithTitle(badRequest.title)
+	return NewProblem(badRequest.urn, badRequest.code).WithTitle(badRequest.title)
 }
 
 // NewUnauthorized creates a new Problem instance that represents an HTTP 401 Unauthorized.
 func NewUnauthorized() *Problem {
-	return New(unauthorized.urn, unauthorized.code).WithTitle(unauthorized.title)
+	return NewProblem(unauthorized.urn, unauthorized.code).WithTitle(unauthorized.title)
 }
 
 // NewForbidden creates a new Problem instance that represents an HTTP 403 Forbidden.
 func NewForbidden() *Problem {
-	return New(forbidden.urn, forbidden.code).WithTitle(forbidden.title)
+	return NewProblem(forbidden.urn, forbidden.code).WithTitle(forbidden.title)
 }
 
 // NewNotFound creates a new Problem instance that represents an HTTP 404 Not Found.
 func NewNotFound() *Problem {
-	return New(notFound.urn, notFound.code).WithTitle(notFound.title)
+	return NewProblem(notFound.urn, notFound.code).WithTitle(notFound.title)
 }
 
 // NewMethodNotAllowed creates a new Problem instance that represents an HTTP 405 Method Not Allowed.
 func NewMethodNotAllowed() *Problem {
-	return New(methodNotAllowed.urn, methodNotAllowed.code).WithTitle(methodNotAllowed.title)
+	return NewProblem(methodNotAllowed.urn, methodNotAllowed.code).WithTitle(methodNotAllowed.title)
 }
 
 // NewConflict creates a new Problem instance that represents an HTTP 409 Conflict.
 func NewConflict() *Problem {
-	return New(conflict.urn, conflict.code).WithTitle(conflict.title)
+	return NewProblem(conflict.urn, conflict.code).WithTitle(conflict.title)
 }
 
 // NewTooManyRequests creates a new Problem instance that represents an HTTP 429 Too Many Requests.
 func NewTooManyRequests() *Problem {
-	return New(tooManyRequests.urn, tooManyRequests.code).WithTitle(tooManyRequests.title)
+	return NewProblem(tooManyRequests.urn, tooManyRequests.code).WithTitle(tooManyRequests.title)
 }
 
 // NewInternalServerError creates a new Problem instance that represents an HTTP 500 Internal Server Error.
 func NewInternalServerError() *Problem {
-	return New(internalServerError.urn, internalServerError.code).WithTitle(internalServerError.title)
+	return NewProblem(internalServerError.urn, internalServerError.code).WithTitle(internalServerError.title)
 }
 
 // NewBadGateway creates a new Problem instance that represents an HTTP 502 Bad Gateway.
 func NewBadGateway() *Problem {
-	return New(badGateway.urn, badGateway.code).WithTitle(badGateway.title)
+	return NewProblem(badGateway.urn, badGateway.code).WithTitle(badGateway.title)
 }
 
 // NewServiceUnavailable creates a new Problem instance that represents an HTTP 503 Service Unavailable.
 func NewServiceUnavailable() *Problem {
-	return New(serviceUnavailable.urn, serviceUnavailable.code).WithTitle(serviceUnavailable.title)
+	return NewProblem(serviceUnavailable.urn, serviceUnavailable.code).WithTitle(serviceUnavailable.title)
 }
 
 // NewGatewayTimeout creates a new Problem instance that represents an HTTP 504 Gateway Timeout.
 func NewGatewayTimeout() *Problem {
-	return New(gatewayTimeout.urn, gatewayTimeout.code).WithTitle(gatewayTimeout.title)
+	return NewProblem(gatewayTimeout.urn, gatewayTimeout.code).WithTitle(gatewayTimeout.title)
 }
