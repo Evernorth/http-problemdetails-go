@@ -27,6 +27,16 @@ func TestNewNotFound(t *testing.T) {
 	doCommonAssertions(t, problemDetails)
 }
 
+func TestNewMethodNotAllowed(t *testing.T) {
+	problemDetails := NewMethodNotAllowed()
+	assert.Equal(t, methodNotAllowed.urn, problemDetails.Type)
+	assert.Equal(t, methodNotAllowed.code, problemDetails.Status)
+	assert.Equal(t, methodNotAllowed.title, problemDetails.Title)
+	assert.Equal(t, "", problemDetails.Detail)
+	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
 func TestNewBadRequest(t *testing.T) {
 	problemDetails := NewBadRequest()
 	assert.Equal(t, badRequest.urn, problemDetails.Type)
@@ -104,6 +114,28 @@ func TestNewTooManyRequests(t *testing.T) {
 	assert.Equal(t, tooManyRequests.title, problemDetails.Title)
 	assert.Equal(t, "", problemDetails.Detail)
 	assert.Equal(t, 0, len(problemDetails.Extensions))
+	doCommonAssertions(t, problemDetails)
+}
+
+func TestNewWithDetail(t *testing.T) {
+	const detail = "This is a detailed error message"
+
+	problemDetails := NewInternalServerError().WithDetail(detail)
+	assert.Equal(t, internalServerError.urn, problemDetails.Type)
+	assert.Equal(t, internalServerError.code, problemDetails.Status)
+	assert.Equal(t, internalServerError.title, problemDetails.Title)
+
+}
+func TestNewWithExtension(t *testing.T) {
+	const key = "example1"
+	const value = "test"
+
+	problemDetails := NewInternalServerError().WithExtension(key, value)
+	assert.Equal(t, internalServerError.urn, problemDetails.Type)
+	assert.Equal(t, internalServerError.code, problemDetails.Status)
+	assert.Equal(t, internalServerError.title, problemDetails.Title)
+	assert.Equal(t, 1, len(problemDetails.Extensions))
+	assert.Equal(t, value, problemDetails.Extensions[key])
 	doCommonAssertions(t, problemDetails)
 }
 
