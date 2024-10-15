@@ -3,6 +3,7 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/Evernorth/http-problemdetails-go.svg)](https://pkg.go.dev/github.com/Evernorth/http-problemdetails-go)
 [![Go Report Card](https://goreportcard.com/badge/github.com/Evernorth/http-problemdetails-go)](https://goreportcard.com/report/github.com/Evernorth/http-problemdetails-go)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Release](https://img.shields.io/github/v/release/Evernorth/http-problemdetails-go)](https://gtihub.com/Evernorth/http-problemdetails-go/releases)
 
 ## Description
 An implementation of [IETF RFC 9457 Problem Details for HTTP APIs](https://www.rfc-editor.org/rfc/rfc9457.html) which is a specification for a standard error structure for HTTP APIs.
@@ -32,11 +33,11 @@ An implementation of [IETF RFC 9457 Problem Details for HTTP APIs](https://www.r
 
 ## Usage
 ### Creating a simple HTTP ProblemDetails
-The example code below demonstrates how to create simple ProblemDetails instances as well as how to add information to them using the With* functions.
+The example code below demonstrates how to create simple Problem instances as well as how to add information to them using the With* functions.
 
-You can create a ProblemDetails instance by simply calling functions like `problemdetails.NewInternalServerError()`, `problemdetails.NewNotFound()` and `problemdetails.NewBadRequest()`.
+You can create a Problem instance by simply calling functions like `problemdetails.NewInternalServerError()`, `problemdetails.NewNotFound()` and `problemdetails.NewBadRequest()`.
 
-You can easily override the default ProblemDetails title and detail fields and provide custom extension fields by using the `WithTitle`, `WithDetail` and `WithExtension` functions.
+You can easily override the default Problem title and detail fields and provide custom extension fields by using the `WithTitle`, `WithDetail` and `WithExtension` functions.
 ```
 package main
 
@@ -130,3 +131,4 @@ http-problemdetails-go is Open Source software released under the [Apache 2.0 li
 ## Original Contributors
 - Steve Sefton, Evernorth
 - Shellee Stewart, Evernorth
+- Cindy Chen, Evernorth
