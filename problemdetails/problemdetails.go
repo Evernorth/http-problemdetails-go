@@ -1,3 +1,8 @@
+/*
+Package problemdetails is an implementation of IETF RFC 9457 Problem Details for HTTP APIs (See: https://www.rfc-editor.org/rfc/rfc9457.html), which is a specification for a standard error structure for HTTP APIs.
+
+See documentation: https://pkg.go.dev/github.com/Evernorth/http-problemdetails-go
+*/
 package problemdetails
 
 import (

@@ -6,10 +6,7 @@
 [![Release](https://img.shields.io/github/v/release/Evernorth/http-problemdetails-go)](https://gtihub.com/Evernorth/http-problemdetails-go/releases)
 
 ## Description
-An implementation of [IETF RFC 9457 Problem Details for HTTP APIs](https://www.rfc-editor.org/rfc/rfc9457.html) which is a specification for a standard error structure for HTTP APIs.
-
-## Installation
-```go get -u github.com/Evernorth/http-problemdetails-go```
+Package `problemdetails` is an implementation of [IETF RFC 9457 Problem Details for HTTP APIs](https://www.rfc-editor.org/rfc/rfc9457.html), which is a specification for a standard error structure for HTTP APIs.
 
 ## Features
  - Supports the following HTTP status codes:
@@ -30,6 +27,9 @@ An implementation of [IETF RFC 9457 Problem Details for HTTP APIs](https://www.r
 
 
 >Note: MIME type must be set in the response header to comply with the RFC 9457 specification.  The `MIMETypeJSON` constant is provided for this purpose.
+
+## Installation
+```go get -u github.com/Evernorth/http-problemdetails-go```
 
 ## Usage
 ### Creating a simple HTTP ProblemDetails
