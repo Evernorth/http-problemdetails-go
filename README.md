@@ -6,7 +6,7 @@
 [![Release](https://img.shields.io/github/v/release/Evernorth/http-problemdetails-go)](https://gtihub.com/Evernorth/http-problemdetails-go/releases)
 
 ## Description
-An implementation of [IETF RFC 9457 Problem Details for HTTP APIs](https://www.rfc-editor.org/rfc/rfc9457.html) which is a specification for a standard error structure for HTTP APIs.
+Package `problemdetails` is an implementation of [IETF RFC 9457 Problem Details for HTTP APIs](https://www.rfc-editor.org/rfc/rfc9457.html), which is a specification for a standard error structure for HTTP APIs.
 
 ## Installation
 ```go get -u github.com/Evernorth/http-problemdetails-go```
